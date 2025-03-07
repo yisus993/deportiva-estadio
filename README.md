@@ -43,7 +43,16 @@ JWT_SECRET="tu_clave_para_jwt"
 EMAIL_USER="tu_correo@gmail.com"
 EMAIL_PASS="tu_contraseña_de_aplicación"
 
+2. Tambien en email/emailservice cosas que Agregar
+- Hay tienes que poner en el apartado de service tu corre si es gmail o que tipo de corre usaste
+- Tambien user: tienes que poner tu correo y en pass: usa la contraseña de aplicacion generada eso es directamente tu cuenta de google info en internet xd
+
 puedes llenarlas a tu gusto o te puedo pasar las que yo use
+
+3. Como se ejecutar
+   - Una terminal para el frontend (ng serve)
+   - Terminal para backend (npm run dev)
+   - Terminal para backend (npm run typescript)
 =======
 # deportiva-estadio
 Proyecto Angular con backend en Node.js para gestión deportiva
