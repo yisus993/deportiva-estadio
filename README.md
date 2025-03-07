@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Proyecto Deportiva Estadio
 
 Este proyecto incluye un frontend desarrollado con Angular y un backend construido con Node.js. La aplicación está diseñada para gestionar información deportiva, como usuarios, productos, ventas y más.
@@ -43,3 +44,7 @@ EMAIL_USER="tu_correo@gmail.com"
 EMAIL_PASS="tu_contraseña_de_aplicación"
 
 puedes llenarlas a tu gusto o te puedo pasar las que yo use
+=======
+# deportiva-estadio
+Proyecto Angular con backend en Node.js para gestión deportiva
+>>>>>>> a36c6c68555a99de8eea4406cac1d2b01a324b9f
