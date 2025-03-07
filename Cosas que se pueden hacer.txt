@@ -55,33 +55,6 @@ Crear todo el apartado
  -Cliente agregados
  -Cliente eliminado
  -Cliente Modificados
-
-/-----------------------/COSAS QUE FALTANA-----------------------------------------------------------------------------------------
-
-ARREGLAR COLORES
-ARREGLAR VENTA EN MEDIO DONDE SALEN LOS Productos
-NO DEJAR AL MOMENTO DE SELECCIONAR UN PRODUCTO SI NO HAY STOCK
-
-
----------------------*Usuarios--------------**
-
------------------------*VENTAS*----------------------
-Agregar boton de agregar cliente expres
-
--------------------*Productos
-TERMINADO
---------------------*Iniciar sesion
-ENVIAR CORREO DE ADVERTENCIA QUE SE HIZO CAMBIO DE CONTRASEÑA 
-Y QUE DIGA EL NOMBRE DEL USUARIO: CAR***
-CORREO: VENDE*******@GMAIL.COM
------------------------------*Venta
-TERMINADO
-POSIBLE ERROR..
-------------------------*Historial
-TERMINADO
-----------------------------------*clientes
-TERMINADO
-
 ------------FACTURAR----uras -
 Crear apartado
 *tabla de facturacion
@@ -91,8 +64,27 @@ con los siguentes datos
 -*Direccion General
 -*CFDI
 -*correo
--*Numero Ticket
--medio de api con SAT
+/-----------------------/COSAS QUE FALTANA-----------------------------------------------------------------------------------------
+
+
+
+---------------------*Usuarios--------------**
+TERMINADO
+-----------------------*VENTAS*----------------------
+TERMINADO
+-------------------*Productos
+TERMINADO
+--------------------*Iniciar sesion
+TERMINADO
+-----------------------------*Venta
+TERMINADO
+------------------------*Historial
+TERMINADO
+----------------------------------*clientes
+TERMINADO
+
+------------FACTURAR----
+TERMINADO
 **-----------------cosas para aprender-------------------**
-GitHub
+
 **---------------------************----------------------**
