@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<div class="header">
+  <a routerLink="/users" routerLinkActive="active" class="header-link">
+    <i class="fas fa-user"></i> Usuarios
+  </a>
+  <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+    <i class="fas fa-file-invoice"></i> Facturas
+  </a>
+  <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+    <i class="fas fa-box"></i> Productos
+  </a>
+  <a routerLink="/logs" routerLinkActive="active" class="header-link">
+    <i class="fas fa-history"></i> Logs
+  </a>
+  <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+    <i class="fas fa-bullhorn"></i> Anuncios
+</a>
+
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="#" class="breadcrumb-link">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+    </li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-current">Jefe / Historial</span>
+    </li>
+  </ol>
+</nav>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial</title>
+    <style>
+        .historial-container {
+            width: 80%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            background-color: #598af5; /* Fondo */
+            color: #ffffff; /* Texto */
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff; /* Texto */
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(240, 238, 238, 0.1);
+        }
+        .ventas-realizadas {
+            background-color: #3f3f3f; /* Fondo */
+        }
+        .productos-agregados-editados {
+            background-color: #3f3f3f; /* Fondo */
+        }
+        .usuarios-registrados {
+            background-color: #3f3f3f; /* Fondo */
+        }
+        h2 {
+            color: #ffffff; /* Texto */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            color: #ffffff; /* Texto */
+        }
+        .export-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #ffffff; /* Texto */
+            color: #3f3f3f; /* Fondo */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .export-button img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="historial-container">
+        <h1>Historial</h1>
+
+        <section class="ventas-realizadas">
+            <h2>Ventas Realizadas</h2>
+            <ul>
+              <li>Últimos 30 Días</li>
+            </ul>
+            <a href="javascript:void(0)" class="export-button" (click)="exportarVentasRealizadas()">
+                <img src="../../../assets/imagen/excellogo.png" alt="Excel Logo">
+                Exportar a Excel
+            </a>
+        </section>
+
+        <section class="productos-agregados-editados">
+            <h2>Productos</h2>
+            <ul>
+              <li>Últimos 30 Días</li>
+            </ul>
+            <a href="javascript:void(0)" class="export-button" (click)="exportarProductos()">
+                <img src="../../../assets/imagen/excellogo.png" alt="Excel Logo">
+                Exportar a Excel
+            </a>
+        </section>
+
+        <section class="usuarios-registrados">
+            <h2>Clientes Registrados</h2>
+            <ul>
+                <li>Últimos 30 Días</li>
+            </ul>
+            <a href="javascript:void(0)" class="export-button" (click)="exportarUsuariosRegistrados()">
+                <img src="../../../assets/imagen/excellogo.png" alt="Excel Logo">
+                Exportar a Excel
+            </a>
+        </section>
+    </div>
+</body>
+</html>

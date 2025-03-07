@@ -1,0 +1,98 @@
+COSAS QUE TIENE EL PROGRAMA
+
+
+----------MEJORAR DISEÑO Y PONER LOGO-------------------
+Iniciar sesion
+
+---------------------------*Usuarios
+-Aparecen los usuarios en listado
+-Eliminar Usuarios
+-editar
+-agregar
+
+---------------------------------*Productos
+-agregar
+-eliminar
+-modificar
+-APARECEN Productos
+-BUSCADOR
+
+-----------------------*Inciar sesion
+-todo lo de login
+Recupera Contraseña
+Agregar en tabala pedir correo electronico *PARA RECUPERAR CONTRASEÑA*
+
+---------------------------*Venta
+-Agregar Productos
+-Agregar usuario seleccionado
+-Marcar total
+-Aumento de I.V. (PARA FACTURAR)
+-Descuento
+-Se envia correo y se registra venta
+-Ticket listo
+-Se descuenta cantidad de producto despues de realizar una venta
+---------------------*clientes
+-agregar
+-eliminar
+-editar
+-buscador
+
+--------------------*Historial
+Crear todo el apartado
+-Aparece 3 apartados
+-*Ventas
+-*Log de Venta
+  -Ventas realizadas
+  -Resumen de Producto, CLiente, Total, y Si se puso descuento
+  --*Numero Ticket
+
+-*Log de Productos
+  -Productos agregados
+  -Productos Modificados
+  -Productos Editados
+
+-*Log de clientes
+ -Cliente agregados
+ -Cliente eliminado
+ -Cliente Modificados
+
+/-----------------------/COSAS QUE FALTANA-----------------------------------------------------------------------------------------
+
+ARREGLAR COLORES
+ARREGLAR VENTA EN MEDIO DONDE SALEN LOS Productos
+NO DEJAR AL MOMENTO DE SELECCIONAR UN PRODUCTO SI NO HAY STOCK
+
+
+---------------------*Usuarios--------------**
+
+-----------------------*VENTAS*----------------------
+Agregar boton de agregar cliente expres
+
+-------------------*Productos
+TERMINADO
+--------------------*Iniciar sesion
+ENVIAR CORREO DE ADVERTENCIA QUE SE HIZO CAMBIO DE CONTRASEÑA 
+Y QUE DIGA EL NOMBRE DEL USUARIO: CAR***
+CORREO: VENDE*******@GMAIL.COM
+-----------------------------*Venta
+TERMINADO
+POSIBLE ERROR..
+------------------------*Historial
+TERMINADO
+----------------------------------*clientes
+TERMINADO
+
+------------FACTURAR----uras -
+Crear apartado
+*tabla de facturacion
+con los siguentes datos
+-*RFC
+-*Nombre de la empresa
+-*Direccion General
+-*CFDI
+-*correo
+-*Numero Ticket
+-medio de api con SAT
+**-----------------cosas para aprender-------------------**
+GitHub
+**---------------------************----------------------**

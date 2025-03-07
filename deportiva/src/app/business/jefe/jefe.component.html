@@ -1,0 +1,44 @@
+<div class="header-container">
+  <div class="header">
+    <a routerLink="/users" routerLinkActive="active" class="header-link">
+      <i class="fas fa-user"></i> Usuarios
+    </a>
+    <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+      <i class="fas fa-file-invoice"></i> Facturas
+    </a>
+    <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+      <i class="fas fa-box"></i> Productos
+    </a>
+    <a routerLink="/logs" routerLinkActive="active" class="header-link">
+      <i class="fas fa-history"></i> Logs
+    </a>
+    <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+      <i class="fas fa-bullhorn"></i> Anuncios
+  </a>
+
+  </div>
+  <div class="panel">
+    <h2>Total Ventas por Día</h2>
+    <div>
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Productos más Vendidos (Top 5)</h2>
+    <div>
+      <canvas id="productChart"></canvas>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Cantidad de Clientes Registrados por Día</h2>
+    <div>
+      <canvas id="clientChart"></canvas>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Métodos de Pago Usados</h2>
+    <div>
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+</div>

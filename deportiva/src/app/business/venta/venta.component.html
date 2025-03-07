@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venta de Productos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav aria-label="breadcrumb" class="w-max">
+    <ol class="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all"
+      style="background-color: #ffffff;">
+      <li
+        class="flex items-center text-[#000000] antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-[#000000]">
+        <a href="#">
+          <p
+            class="block antialiased font-sans text-sm leading-normal text-[#000000] font-normal opacity-50 transition-all hover:text-[#000000] hover:opacity-100">
+            Inicio</p>
+        </a>
+        <span
+          class="text-[#000000] text-sm antialiased font-sans text-sm font-normal leading-normal mx-2 pointer-events-none select-none">/</span>
+      </li>
+      <li
+        class="flex items-center text-[#000000] antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-[#000000]">
+        <p class="block antialiased font-sans text-sm leading-normal text-[#000000] font-normal">Ventas</p>
+      </li>
+    </ol>
+  </nav>
+
+  <div class="container mx-auto">
+    <div class="flex">
+      <!-- Recuadro para el buscador en el lado izquierdo -->
+      <div class="buscar">
+        <div class="flex flex-col items-center mb-4">
+          <input type="text" [(ngModel)]="searchTerm" (input)="toggleProductoSelection()"
+            placeholder="Buscar por ID o Nombre..."
+            class="w-full mb-4 px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+        </div>
+        <ul *ngIf="mostrarProductos" class="w-full">
+          <li *ngFor="let producto of filtrarProductos()" (click)="seleccionarProducto(producto)"
+            class="cursor-pointer hover:bg-gray-200 p-2 rounded">
+            {{ producto.name }} - {{ producto.price | currency }}
+          </li>
+        </ul>
+      </div>
+      <!-- Listado de productos seleccionados en el centro -->
+      <div class="tabla-productos">
+        <h1 class="text-3xl font-bold mb-6 text-center">Productos Seleccionados</h1>
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th class="text-left">Nombre</th>
+              <th class="text-left">Cantidad</th>
+              <th class="text-left">Precio</th>
+              <th class="text-left">Acciones</th> <!-- Nueva columna para eliminar -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of venta.productos; let i = index">
+              <td>{{producto.name}}</td>
+              <td>
+                <input type="number" [(ngModel)]="producto.quantity" name="cantidad{{i}}" placeholder="Cantidad"
+                  (input)="actualizarPrecioTotal()"
+                  class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+              </td>
+              <td>{{producto.price | currency}}</td>
+              <td>
+                <button (click)="eliminarProducto(i)"
+                  class="bg-[#9a1e1e] text-[#232323] px-2 py-1 rounded-lg hover:bg-[#9a1e1e] btn-padding btn-spacing">Eliminar</button>
+                <!-- Botón de eliminar -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Recuadro para I.V.A, Descuento, Pago, Total, Paga con, Cambio y Registrar Venta en el lado derecho -->
+      <div class="detalles-venta">
+        <h2 class="text-xl font-bold mb-4">Detalles de Venta</h2>
+        <!--<div class="mb-4">
+          <label class="block mb-2">I.V.A:</label>
+          <select [(ngModel)]="venta.iva" name="iva" (change)="actualizarPrecioTotal()" class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+            <option [value]="false">No</option>
+            <option [value]="true">Sí</option>
+          </select>
+        </div>-->
+        <div class="mb-4">
+          <label class="block mb-2">Descuento (%):</label>
+          <input type="number" [(ngModel)]="venta.descuento" name="descuento" (input)="actualizarPrecioTotal()"
+            class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Pago:</label>
+          <select [(ngModel)]="venta.metodoPago" name="metodoPago"
+            class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+            <option value="Transferencia">Transferencia</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Total:</label>
+          <input type="number" [(ngModel)]="venta.totalAmount" name="totalAmount" readonly
+            class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Paga con:</label>
+          <div class="flex justify-between">
+            <div class="flex-1 mx-1">
+              <label class="block mb-2 text-center">Efectivo</label>
+              <input type="number" [(ngModel)]="venta.pagaConEfectivo" name="pagaConEfectivo" placeholder="Efectivo"
+                (input)="actualizarCambioEfectivo()"
+                class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+            </div>
+            <div class="flex-1 mx-1">
+              <label class="block mb-2 text-center">Tarjeta</label>
+              <input type="number" [(ngModel)]="venta.pagaConTarjeta" name="pagaConTarjeta" placeholder="Tarjeta"
+                (input)="actualizarCambioTarjeta()"
+                class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+            </div>
+            <div class="flex-1 mx-1">
+              <label class="block mb-2 text-center">Transferencia</label>
+              <input type="number" [(ngModel)]="venta.pagaConTransferencia" name="pagaConTransferencia"
+                placeholder="Transferencia" (input)="actualizarCambioTransferencia()"
+                class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+            </div>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Cambio:</label>
+          <input type="number" [(ngModel)]="venta.cambio" name="cambio" readonly
+            class="w-full px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+        </div>
+        <div class="mb-4">
+          <label class="block mb-2">Cliente:</label>
+          <input type="text" [(ngModel)]="clienteTerm" (input)="buscarCliente()"
+            placeholder="Buscar datos del Cliente..."
+            class="w-full mb-4 px-2 py-1 border rounded-lg focus:outline-none focus:ring-2">
+          <ul *ngIf="mostrarClientes" class="w-full">
+            <li *ngFor="let cliente of clientesFiltrados" (click)="seleccionarCliente(cliente)"
+              class="cursor-pointer hover:bg-gray-200 p-2 rounded">
+              {{ cliente.name }} - {{ cliente.email }}
+            </li>
+          </ul>
+        </div>
+        <div class="flex flex-col items-center">
+          <button (click)="registrarVenta()"
+            class="w-full bg-[#9a1e1e] text-[#232323] px-2 py-1 rounded-lg hover:bg-[#9a1e1e] btn-padding btn-spacing">Registrar
+            Venta</button>
+
+        </div>
+        <div *ngIf="mensaje" class="mt-4 p-2 bg-red-500 text-white text-center rounded-lg">
+          {{ mensaje }}
+        </div>
+        <div *ngIf="mensajeExito" class="mt-4 p-2 bg-green-500 text-white text-center rounded-lg">
+          {{ mensajeExito }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<!-- Panel para Notas -->
+<div class="panel-notas mt-6 p-4 border rounded-lg bg-gray-100">
+  <h2 class="text-2xl font-bold mb-4">Notas</h2>
+
+  <!-- Solo el rol de administrador puede ver estos botones -->
+  <div *ngIf="isAdmin()">
+    <button (click)="crearNota()" class="bg-green-500 text-white px-2 py-1 rounded-lg hover:bg-green-700 mb-2">Crear Nota</button>
+    <div *ngFor="let nota of notas; let i = index">
+      <input type="text" [(ngModel)]="nota.titulo" placeholder="Título" class="w-full mb-2 px-2 py-1 border rounded-lg focus:outline-none focus:ring-2 font-bold text-lg">
+      <textarea [(ngModel)]="nota.contenido" placeholder="Contenido" class="w-full mb-2 px-2 py-1 border rounded-lg focus:outline-none focus:ring-2 text-base"></textarea>
+      <button (click)="guardarNota(i)" class="bg-blue-500 text-white px-2 py-1 rounded-lg hover:bg-blue-700 mr-2">Guardar</button>
+      <button (click)="eliminarNota(i)" class="bg-red-500 text-white px-2 py-1 rounded-lg hover:bg-red-700">Eliminar</button>
+    </div>
+  </div>
+
+  <!-- Todos los roles pueden ver las notas -->
+  <div *ngIf="!isAdmin()">
+    <div *ngFor="let nota of notas" class="mb-2">
+      <h3 class="font-bold text-lg text-center">{{ nota.titulo }}</h3>
+      <p class="text-base">{{ nota.contenido }}</p>
+    </div>
+  </div>
+</div>

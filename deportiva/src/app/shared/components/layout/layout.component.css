@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.min-h-screen {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.content {
+  flex: 1;
+  padding: 10px;
+  margin-left: 100px; /* Ajusta según el ancho de tu sidebar */
+}
+
+.navbar {
+  width: 100%;
+  background-color: transparent;
+  color: #ffffff;
+  box-shadow: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  margin-top: 20px;
+  flex: 1;
+}
+
+app-footer {
+  color: #ffffff;
+  padding-top: 20px;
+}

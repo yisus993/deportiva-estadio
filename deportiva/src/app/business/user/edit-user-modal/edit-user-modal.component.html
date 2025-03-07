@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuario</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="px-4 py-2 bg-white rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold text-black mb-4">Editar Usuario</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label class="block text-black">Nombre:</label>
+        <input [(ngModel)]="selectedUser.name" name="name" required class="w-full px-3 py-2 border rounded-md">
+      </div>
+      <div class="mb-4">
+        <label class="block text-black">Apellido:</label>
+        <input [(ngModel)]="selectedUser.lastname" name="lastname" required class="w-full px-3 py-2 border rounded-md">
+      </div>
+      <div class="mb-4">
+        <label class="block text-black">Usuario:</label>
+        <input [(ngModel)]="selectedUser.user" name="user" required class="w-full px-3 py-2 border rounded-md">
+      </div>
+      <!--
+      <div class="mb-4">
+        <label class="block text-black">Email:</label>
+        <input type="email" [(ngModel)]="selectedUser.email" name="email" required class="w-full px-3 py-2 border rounded-md">
+      </div>
+      -->
+      <div class="mb-4">
+        <label class="block text-black">Status:</label>
+        <select [(ngModel)]="selectedUser.status" name="status" class="w-full px-3 py-2 border rounded-md">
+          <option value="1">Activo</option>
+          <option value="0">Inactivo</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label class="block text-black">Rol:</label>
+        <select [(ngModel)]="selectedUser.role" name="role" class="w-full px-3 py-2 border rounded-md">
+          <option value="Vendedor">Vendedor</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
+      <div class="flex justify-end">
+        <button type="submit" class="btn-guardar">Guardar</button>
+        <button type="button" (click)="onClose()" class="btn-cancelar">Cancelar</button>
+      </div>
+    </form>
+    <h2 class="text-base font-semibold text-black mb-4">SI VAS A EDITAR LA CONTRASEÑA<br>CREA UNA CUENTA NUEVA</h2>
+  </div>
+</body>
+</html>

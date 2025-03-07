@@ -1,0 +1,53 @@
+<div class="header">
+  <a routerLink="/users" routerLinkActive="active" class="header-link">
+    <i class="fas fa-user"></i> Usuarios
+  </a>
+  <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+    <i class="fas fa-file-invoice"></i> Facturas
+  </a>
+  <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+    <i class="fas fa-box"></i> Productos
+  </a>
+  <a routerLink="/logs" routerLinkActive="active" class="header-link">
+    <i class="fas fa-history"></i> Logs
+  </a>
+  <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+    <i class="fas fa-bullhorn"></i> Anuncios
+</a>
+
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="#" class="breadcrumb-link">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+    </li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-current">Jefe / Logs</span>
+    </li>
+  </ol>
+</nav><div class="anuncios-container">
+  <form [formGroup]="anunciosForm" (ngSubmit)="crearAnuncio()">
+    <h2>Mandar Anuncio via Correo a todos los Clientes</h2>
+    <label for="titulo">Título:</label>
+    <input id="titulo" formControlName="titulo" type="text" required>
+    <div *ngIf="anunciosForm.controls['titulo'].invalid && anunciosForm.controls['titulo'].touched">
+      <span class="error-message">El título es obligatorio.</span>
+    </div>
+
+    <label for="contenido">Contenido:</label>
+    <textarea id="contenido" formControlName="contenido" required></textarea>
+    <div *ngIf="anunciosForm.controls['contenido'].invalid && anunciosForm.controls['contenido'].touched">
+      <span class="error-message">El contenido es obligatorio.</span>
+    </div>
+
+    <button type="submit" [disabled]="anunciosForm.invalid">Crear Anuncio</button>
+  </form>
+
+  <h3>Anuncios Enviados</h3>
+  <div *ngFor="let anuncio of anunciosEnviados" class="anuncio-card">
+    <h4>{{ anuncio.titulo }}</h4>
+    <p>{{ anuncio.contenido }}</p>
+    <small>Fecha de Envío: {{ anuncio.fecha | date:'short' }}</small>
+  </div>
+</div>

@@ -1,0 +1,201 @@
+.logs-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.options-container label, .options-container select {
+  margin-right: 10px;
+}
+
+.options-container label {
+  font-weight: bold;
+}
+
+.options-container select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+}
+
+.refresh-button {
+  background-color: #1f5fa7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #1d4d91;
+}
+
+.sort-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #1f5fa7;
+  font-size: 1.2em;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.sort-icon:hover {
+  color: #1d4d91;
+}
+
+.log-section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  color: black;
+}
+
+th {
+  background-color: #1f5fa7;
+  color: white;
+}
+
+.lines-per-page-header {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination-controls .ngx-pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination-controls .ngx-pagination a {
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #1f5fa7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-controls .ngx-pagination .current {
+  background-color: #1f5fa7;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.pagination-controls .ngx-pagination a:hover {
+  background-color: #1f5fa7;
+  color: white;
+}
+/* Enlaces de encabezado */
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 1rem 0;
+  box-shadow: 0 0.5rem 1rem #1f5fa7;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #1f5fa7;
+  transition: color 0.3s;
+}
+
+.header-link:hover,
+.header-link.routerLinkActive {
+  color: #3f3f3f;
+}
+
+.header-link i {
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espacio debajo de la barra de navegación */
+}
+
+.breadcrumb-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  color: #1f5fa7; /* Color de enlace */
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.breadcrumb-link:hover {
+  opacity: 1;
+}
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: #333333; /* Color del separador */
+}
+
+.breadcrumb-current {
+  color: #1f5fa7;
+  font-weight: bold; /* Texto en negrita para el elemento actual */
+}

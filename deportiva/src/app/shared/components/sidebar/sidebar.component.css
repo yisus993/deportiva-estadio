@@ -1,0 +1,123 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que el footer esté al fondo */
+  width: 100px; /* Reduce el ancho de la barra lateral */
+  height: 100vh;
+  background: linear-gradient(to bottom right, #3f3f3f, #367cece2);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 10px; /* Ajusta el padding si es necesario */
+  border-radius: 12px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  width: 100px; /* Ajusta el tamaño del logo */
+  height: auto;
+  margin-right: 10px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  flex: 1; /* Para que ocupe el espacio restante */
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center; /* Centra los íconos horizontalmente */
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+  position: relative; /* Necesario para los tooltips */
+  margin-bottom: 20px; /* Ajusta la separación en píxeles según tu preferencia */
+}
+
+.menu-item i {
+  font-size: 24px; /* Ajusta el tamaño del ícono en píxeles */
+  color: #ffffff; /* Ajusta el color del ícono */
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item .tooltip-text {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -40px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-item:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 10px; /* Ajusta la separación vertical entre el ícono y el tooltip */
+}
+
+.logout-button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: rgb(255, 0, 0);
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s, font-size 0.3s; /* Añadimos transición para el tamaño de la fuente */
+}
+
+.logout-button i {
+  font-size: 30px; /* Tamaño inicial del ícono */
+  transition: font-size 0.3s; /* Añadimos transición para el tamaño de la fuente */
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.logout-button:hover i {
+  font-size: 24px; /* Tamaño al hacer hover, en px */
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: #37415100; /* Opcional, para dar estilo al fondo */
+}

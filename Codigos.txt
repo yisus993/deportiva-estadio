@@ -1,0 +1,12 @@
+Codigo de ACTIVACION
+
+Activar projecto de angular : PUERTO: 2400
+ng serve
+
+
+Activar Base de datos  PUERTO :3025
+npm run dev
+npm run typescript
+
+
+

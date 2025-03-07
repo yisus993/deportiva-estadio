@@ -1,0 +1,226 @@
+
+.btn-add {
+  padding: 8px 16px;
+  font-weight: medium;
+  color: #ffffff;
+  background-color: #1f5fa7;
+  border-radius: 8px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-add:hover {
+  background-color: #133c6b;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 50%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.table-header {
+  padding: 12px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: medium;
+  color: #000000;
+  border-bottom: 2px solid #3f3f3f;
+}
+
+.table-cell {
+  padding: 12px;
+  border-bottom: 1px solid #3f3f3f;
+  color: #000000;
+}
+
+.btn-edit {
+  padding: 8px 16px;
+  font-weight: medium;
+  color: #ffffff;
+  background-color: #1f5fa7;
+  border-radius: 8px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-edit:hover {
+  background-color: #194b85;
+}
+
+.btn-delete {
+  margin-left: 8px;
+  padding: 8px 16px;
+  font-weight: medium;
+  color: #ffffff;
+  background-color: #be0d0d;
+  border-radius: 8px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-delete:hover {
+  background-color: #690a0a;
+}
+
+.modal-bg,
+.modal-outer,
+.modal-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-opacity: 75%;
+  background-color: rgba(0, 0, 0, 0.527); /* Darken background for focus */
+}
+
+.modal-content,
+.modal-box {
+  background-color: #ffffff;
+  border-radius: 12px; /* Softer corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  padding: 24px; /* More padding for better spacing */
+  max-width: 500px; /* Constrain modal width for better readability */
+  margin: 0 20px; /* Allowing some margin for small screens */
+}
+
+.modal-title {
+  font-size: 20px; /* Slightly larger for emphasis */
+  font-weight: bold; /* Bold title for clarity */
+  color: #333333; /* Darker color for contrast */
+  margin-bottom: 24px; /* Increased margin for spacing */
+}
+
+.modal-field {
+  margin-bottom: 20px; /* Adjusted margin for consistency */
+}
+
+.modal-input {
+  width: 100%;
+  padding: 10px 15px; /* More padding for comfort */
+  border: 1px solid #ddd; /* Softer border color */
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light gray background */
+  color: #333333; /* Darker input text */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+  transition: border-color 0.2s; /* Smooth border transition */
+}
+
+.modal-input:focus {
+  border-color: #1f5fa7; /* Highlight border on focus */
+  outline: none; /* Remove default outline */
+}
+
+.btn-save,
+.btn-cancel {
+  padding: 10px 20px; /* Adjusted padding */
+  font-weight: medium;
+  color: #ffffff;
+  background-color: #1f5fa7; /* Unified button colors */
+  border-radius: 8px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.btn-save:hover,
+.btn-cancel:hover {
+  background-color: #133c6b; /* Darkened on hover */
+}
+
+/* Adding text color customization */
+.modal-content,
+.modal-box {
+  color: #333333; /* Default text color */
+}
+
+.modal-title {
+  color: #222222; /* Slightly darker title color */
+}
+/* Contenedor principal */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Enlaces de encabezado */
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 1rem 0;
+  box-shadow: 0 0.5rem 1rem #1f5fa7;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #1f5fa7;
+  transition: color 0.3s;
+}
+
+.header-link:hover,
+.header-link.routerLinkActive {
+  color: #3f3f3f;
+}
+
+.header-link i {
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espacio debajo de la barra de navegación */
+}
+
+.breadcrumb-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  color: #1f5fa7; /* Color de enlace */
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.breadcrumb-link:hover {
+  opacity: 1;
+}
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: #333333; /* Color del separador */
+}
+
+.breadcrumb-current {
+  color: #1f5fa7;
+  font-weight: bold; /* Texto en negrita para el elemento actual */
+}
+/* Estilos adicionales para botones y texto */
+.btn-padding {
+  padding: 10px 20px;
+}
+
+.btn-spacing {
+  margin-right: 10px; /* Ajusta este valor según tus necesidades */
+}

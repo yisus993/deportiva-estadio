@@ -1,0 +1,71 @@
+<div class="header">
+  <a routerLink="/users" routerLinkActive="active" class="header-link">
+    <i class="fas fa-user"></i> Usuarios
+  </a>
+  <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+    <i class="fas fa-file-invoice"></i> Facturas
+  </a>
+  <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+    <i class="fas fa-box"></i> Productos
+  </a>
+  <a routerLink="/logs" routerLinkActive="active" class="header-link">
+    <i class="fas fa-history"></i> Logs
+  </a>
+  <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+    <i class="fas fa-bullhorn"></i> Anuncios
+</a>
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="#" class="breadcrumb-link">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+    </li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-current">Jefe / Usuarios</span>
+    </li>
+  </ol>
+</nav>
+<button class="btn btn-add btn-padding btn-spacing" (click)="openAddUserModal()">Agregar Usuarios</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Usuario</th>
+      <th>Role</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.user }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <span [ngClass]="{'active-status': user.status === 1, 'inactive-status': user.status === 0}">
+          {{ user.status === 1 ? 'Activo' : 'Inactivo' }}
+        </span>
+      </td>
+      <td>
+        <button (click)="openEditUserModal(user)" class="btn btn-edit btn-padding btn-spacing">Edit</button>
+        <button (click)="openDeleteConfirmModal(user.id!)" class="btn btn-delete btn-padding btn-spacing">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- Modal de confirmación -->
+<div *ngIf="showDeleteConfirmModal" class="modal-backdrop">
+  <div class="modal">
+    <div class="modal-content">
+      <h3>Confirmar Eliminación</h3>
+      <p>¿Estás seguro de que deseas eliminar al usuario?</p>
+      <div class="modal-actions">
+        <button type="button" (click)="confirmDeleteUser()" class="btn btn-delete btn-padding btn-spacing">Eliminar</button>
+        <button type="button" (click)="closeDeleteConfirmModal()" class="btn btn-cancel btn-padding btn-spacing">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

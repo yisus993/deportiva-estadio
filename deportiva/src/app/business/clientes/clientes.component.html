@@ -1,0 +1,149 @@
+<nav aria-label="breadcrumb" class="w-max">
+  <ol class="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all">
+    <li class="flex items-center text-breadcrumb-text antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-breadcrumb-hover">
+      <a href="#">
+        <p class="block antialiased font-sans text-sm leading-normal text-breadcrumb-text font-normal opacity-50 transition-all hover:text-breadcrumb-hover hover:opacity-100">Inicio</p>
+      </a>
+      <span class="text-breadcrumb-text text-sm antialiased font-sans text-sm font-normal leading-normal mx-2 pointer-events-none select-none">/</span>
+    </li>
+    <li class="flex items-center text-breadcrumb-text antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-breadcrumb-hover">
+      <p class="block antialiased font-sans text-sm leading-normal text-breadcrumb-text font-normal">Clientes</p>
+    </li>
+  </ol>
+</nav>
+
+<button class="btn btn-add-client btn-padding btn-spacing" (click)="openAddClientModal()">Agregar Cliente</button>
+
+<div class="search-bar my-4">
+  <input type="text" id="searchInput" (keyup)="filterClients()" placeholder="Buscar clientes..." class="search-input">
+</div>
+
+<table id="clientsTable" class="min-w-full divide-y divide-x">
+  <thead>
+    <tr>
+      <th class="table-header">ID</th>
+      <th class="table-header">Nombre</th>
+      <th class="table-header">Teléfono</th>
+      <th class="table-header">Email</th>
+      <th class="table-header">Acciones</th>
+    </tr>
+  </thead>
+  <tbody class="table-body">
+    <tr *ngFor="let client of clients">
+      <td class="table-cell">{{ client.id }}</td>
+      <td class="table-cell">{{ client.name }}</td>
+      <td class="table-cell">{{ client.phone }}</td>
+      <td class="table-cell">{{ client.email }}</td>
+      <td class="table-cell">
+        <button (click)="editClient(client)" class="btn btn-edit btn-padding btn-spacing">Editar</button>
+        <button (click)="openDeleteConfirmModal(client.id!)" class="btn btn-delete btn-padding">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal para agregar cliente -->
+<div *ngIf="showAddClientModal" class="modal">
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-body">
+        <form (ngSubmit)="addClient()">
+          <div class="modal-header">Agregar Cliente</div>
+          <div class="form-group">
+            <label class="form-label">Nombre:</label>
+            <input [(ngModel)]="newClient.name" name="name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono:</label>
+            <input type="text" [(ngModel)]="newClient.phone" name="phone" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email:</label>
+            <input type="email" [(ngModel)]="newClient.email" name="email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">RFC (Opcional):</label>
+            <input [(ngModel)]="newClient.rfc" name="rfc" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Uso CFDI (Opcional):</label>
+            <input [(ngModel)]="newClient.uso_cfdi" name="uso_cfdi" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Régimen Fiscal (Opcional):</label>
+            <input [(ngModel)]="newClient.regimen_fiscal" name="regimen_fiscal" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Código Postal (Opcional):</label>
+            <input [(ngModel)]="newClient.codigo_postal" name="codigo_postal" class="form-input">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-save btn-padding btn-spacing">Guardar</button>
+            <button type="button" (click)="closeAddClientModal()" class="btn btn-cancel btn-padding">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Formulario para editar cliente -->
+<div *ngIf="selectedClient" class="modal">
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-body">
+        <div class="modal-header">Editar Cliente</div>
+        <form (ngSubmit)="updateClient()">
+          <div class="form-group">
+            <label class="form-label">Nombre:</label>
+            <input [(ngModel)]="selectedClient.name" name="name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono:</label>
+            <input type="text" [(ngModel)]="selectedClient.phone" name="phone" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email:</label>
+            <input type="email" [(ngModel)]="selectedClient.email" name="email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">RFC (Opcional):</label>
+            <input [(ngModel)]="selectedClient.rfc" name="rfc" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Uso CFDI (Opcional):</label>
+            <input [(ngModel)]="selectedClient.uso_cfdi" name="uso_cfdi" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Régimen Fiscal (Opcional):</label>
+            <input [(ngModel)]="selectedClient.regimen_fiscal" name="regimen_fiscal" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Código Postal (Opcional):</label>
+            <input [(ngModel)]="selectedClient.codigo_postal" name="codigo_postal" class="form-input">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-save btn-padding btn-spacing">Guardar</button>
+            <button type="button" (click)="selectedClient = null" class="btn btn-cancel btn-padding">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de confirmación -->
+<div *ngIf="showDeleteConfirmModal" class="modal">
+  <div class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">Confirmar Eliminación</div>
+      <div class="modal-body">
+        <p class="modal-text">¿Estás seguro de que deseas eliminar al cliente?</p>
+        <div class="modal-actions">
+          <button type="button" (click)="confirmDeleteClient()" class="btn btn-delete btn-padding btn-spacing">Eliminar</button>
+          <button type="button" (click)="closeDeleteConfirmModal()" class="btn btn-cancel btn-padding">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

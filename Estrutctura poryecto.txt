@@ -1,0 +1,41 @@
+Estructura del Proyecto DEPORTIVA
+1. Dashboard (Panel de Control)
+Resumen de ventas, ganancias y productos más vendidos.
+
+Gráficos y estadísticas de rendimiento.
+
+2. Gestión de Productos e Inventario
+Categorías (Artículos, Trofeos, Prendas, Uniformes Completos, etc.).
+
+CRUD de productos (Agregar, Editar, Eliminar).
+
+Gestión de inventario (stock, precios de mayoreo y menudeo).
+
+Seguimiento de pedidos y abastecimiento de inventario.
+
+3. Gestión de Ventas
+Registro de ventas (fecha, cliente, productos vendidos).
+
+Facturación y generación de tickets.
+
+Métodos de pago (efectivo, tarjeta, transferencia).
+
+4. Gestión de Clientes y Proveedores
+Registro y seguimiento de clientes.
+
+Historial de compras.
+
+Programas de fidelización (descuentos, puntos).
+
+Registro de proveedores.
+
+5. Usuarios, Roles y Configuración
+Control de acceso y permisos (Administrador, Vendedor, etc.).
+
+Seguridad y autenticación.
+
+Parámetros del negocio (impuestos, descuentos, moneda).
+
+Personalización del sistema.
+
+Reportes y Análisis (Reportes de ventas por período, Reportes de inventario y productos más vendidos, Análisis de ganancias y pérdidas).

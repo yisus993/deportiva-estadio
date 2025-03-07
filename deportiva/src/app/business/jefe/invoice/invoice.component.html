@@ -1,0 +1,118 @@
+<div class="header">
+  <a routerLink="/users" routerLinkActive="active" class="header-link">
+    <i class="fas fa-user"></i> Usuarios
+  </a>
+  <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+    <i class="fas fa-file-invoice"></i> Facturas
+  </a>
+  <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+    <i class="fas fa-box"></i> Productos
+  </a>
+  <a routerLink="/logs" routerLinkActive="active" class="header-link">
+    <i class="fas fa-history"></i> Logs
+  </a>
+  <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+    <i class="fas fa-bullhorn"></i> Anuncios
+</a>
+
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="#" class="breadcrumb-link">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+    </li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-current">Jefe / Facturas</span>
+    </li>
+  </ol>
+</nav><div class="container">
+  <h2>Gestión de Facturas</h2>
+
+  <!-- Botón para abrir el modal de nueva factura -->
+  <button class="btn btn-primary" (click)="openAddInvoiceModal()">Nueva Factura</button>
+
+  <!-- Modal para crear/editar una factura -->
+  <div class="modal" *ngIf="showAddInvoiceModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeAddInvoiceModal()">&times;</span>
+      <h3>Nueva Factura</h3>
+      <form [formGroup]="invoiceForm" (ngSubmit)="addInvoice()">
+        <div class="form-group">
+          <label for="cliente">Cliente:</label>
+          <input id="cliente" type="text" formControlName="cliente" class="form-control" (input)="filterClients()" autocomplete="off" required>
+          <ul class="autocomplete-list" *ngIf="filteredClients.length">
+            <li *ngFor="let customer of filteredClients" (click)="selectClient(customer)">
+              {{ customer.name }}
+            </li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <input id="descripcion" type="text" formControlName="descripcion" class="form-control" required>
+        </div>
+        <div formArrayName="items">
+          <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i" class="form-group">
+            <label for="product">Producto:</label>
+            <select id="product" formControlName="productId" class="form-control" (change)="calculateTotal()">
+              <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+            </select>
+            <label for="quantity">Cantidad:</label>
+            <input id="quantity" type="number" formControlName="quantity" class="form-control" (input)="calculateTotal()">
+            <button type="button" class="remove-item-btn" (click)="removeItem(i)">Eliminar</button>
+          </div>
+          <button type="button" class="add-product-btn" (click)="addItem()">Agregar Producto</button>
+        </div>
+        <div class="form-group">
+          <label for="total">TOTAL:</label>
+          <span>{{ total | currency }}</span>
+        </div>
+        <button type="submit" class="btn btn-success">Crear Factura</button>
+        <button type="button" class="btn btn-secondary" (click)="closeAddInvoiceModal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Listado de facturas -->
+  <div class="invoice-list">
+    <h3>Facturas</h3>
+    <ul class="list-group">
+      <li *ngFor="let invoice of invoices" class="list-group-item">
+        <div class="invoice-details">
+          <strong>{{invoice.description}}</strong> - ${{invoice.amount}} - Cliente: {{getCustomerName(invoice.clientId)}}
+        </div>
+        <div class="invoice-actions">
+          <button class="btn btn-info details-btn" (click)="viewInvoiceDetails(invoice.id!)">Detalles</button>
+          <button class="remove-item-btn" (click)="deleteInvoice(invoice.id!)">Eliminar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal para mostrar los detalles de la factura -->
+<div class="modal" *ngIf="showInvoiceDetailsModal">
+  <div class="modal-content">
+    <span class="close" (click)="closeInvoiceDetailsModal()">&times;</span>
+    <h3>Detalles de la Factura</h3>
+    <div *ngIf="selectedInvoice">
+      <p><strong>Cliente:</strong></p>
+      <p>Nombre: {{ selectedInvoice.client?.name }}</p>
+      <p>Teléfono: {{ selectedInvoice.client?.phone }}</p>
+      <p>Email: {{ selectedInvoice.client?.email }}</p>
+      <p>RFC: {{ selectedInvoice.client?.rfc }}</p>
+      <p>Uso CFDI: {{ selectedInvoice.client?.uso_cfdi }}</p>
+      <p>Régimen Fiscal: {{ selectedInvoice.client?.regimen_fiscal }}</p>
+      <p>Código Postal: {{ selectedInvoice.client?.codigo_postal }}</p>
+
+      <p><strong>Descripción:</strong> {{ selectedInvoice.description }}</p>
+      <p><strong>Items:</strong></p>
+      <ul>
+        <li *ngFor="let item of selectedInvoice.items">
+          Producto ID:  {{item.productId}} Cantidad: {{ item.quantity }}
+        </li>
+      </ul>
+      <p><strong>Total:</strong> {{ selectedInvoice.amount | currency }}</p>
+    </div>
+  </div>
+</div>

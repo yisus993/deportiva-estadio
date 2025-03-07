@@ -1,0 +1,194 @@
+/* Estilos generales */
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Font-sans', sans-serif;
+}
+
+/* Estilos de la barra de navegación */
+nav[aria-label="breadcrumb"] {
+  width: max-content;
+}
+nav[aria-label="breadcrumb"] ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  background-color: #ffffff;
+  background-opacity: 60%;
+  border-radius: 0.375rem;
+  padding: 0;
+  transition: all 0.3s;
+}
+nav[aria-label="breadcrumb"] li {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: normal;
+  line-height: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+nav[aria-label="breadcrumb"] li a p,
+nav[aria-label="breadcrumb"] li p,
+nav[aria-label="breadcrumb"] li span {
+  color: #1f5fa7;
+  opacity: 0.5;
+}
+nav[aria-label="breadcrumb"] li:hover a p,
+nav[aria-label="breadcrumb"] li:hover p,
+nav[aria-label="breadcrumb"] li:hover span {
+  opacity: 1;
+}
+
+/* Estilos de contenedor */
+.container {
+  max-width: calc(100% - 60px); /* Ajusta el ancho para tener en cuenta la barra lateral */
+  margin: auto;
+  margin-left: 60px; /* Ajusta el margen izquierdo para ocupar el espacio dejado por la barra lateral */
+}
+.container .flex {
+  display: flex;
+}
+
+/* Estilos del buscador */
+.buscar {
+  width: 20%;
+  padding: 0.5rem;
+  box-shadow: 0 0 10px #1f5fa7;
+  border-radius: 0.375rem;
+  margin-right: 1rem;
+}
+.buscar input,
+.buscar ul {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+.buscar ul li:hover {
+  background-color: #1f5fa7;
+}
+
+/* Estilos de la tabla de productos seleccionados */
+.tabla-productos {
+  width: 60%;
+  padding: 2rem;
+  box-shadow: 0 0 10px #1f5fa7;
+  border-radius: 0.375rem;
+  margin-right: 1rem;
+}
+.tabla-productos table {
+  width: 100%;
+}
+.tabla-productos table th,
+.tabla-productos table td {
+  text-align: left;
+}
+.tabla-productos table input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+/* Estilos de los detalles de venta */
+.detalles-venta {
+  width: 20%;
+  padding: 1rem;
+  box-shadow: 0 0 10px #1f5fa7;
+  border-radius: 0.375rem;
+}
+.detalles-venta select,
+.detalles-venta input,
+.detalles-venta ul {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+.detalles-venta ul li:hover {
+  background-color: #24c4ec;
+}
+.detalles-venta button {
+  width: 100%;
+  background-color: #1f5fa7;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+.detalles-venta button:hover {
+  background-color: #184a83;
+}
+
+/* Estilos para el mensaje */
+.mensaje {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #d9534f;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 0.375rem;
+}
+/* Estilos adicionales para botones y texto */
+.btn-padding {
+  padding: 10px 20px;
+}
+
+.btn-spacing {
+  margin-right: 10px; /* Ajusta este valor según tus necesidades */
+}
+.panel-notas {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #1f5fa7;
+  border-radius: 10px;
+  background-color: #1f5fa712; /* Color de fondo del panel */
+  color: #000000; /* Color del texto */
+}
+
+.panel-notas h2 {
+  text-align: center;
+  color: #000000; /* Color del texto del título */
+}
+
+.panel-notas input, .panel-notas textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #ffffff; /* Fondo de los campos de entrada */
+  color: #000000; /* Color del texto en los campos de entrada */
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+.panel-notas input:focus, .panel-notas textarea:focus {
+  outline: none;
+  border-color: #1f5fa7;
+}
+
+.panel-notas button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #1f5fa7; /* Color de fondo de los botones */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.panel-notas button:hover {
+  background-color: #174d82; /* Color de fondo de los botones al pasar el mouse por encima */
+}
+
+.panel-notas p {
+  white-space: pre-line; /* Respeta los renglones en el contenido del texto */
+}

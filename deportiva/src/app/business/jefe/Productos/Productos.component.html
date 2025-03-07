@@ -1,0 +1,122 @@
+<div class="header">
+  <a routerLink="/users" routerLinkActive="active" class="header-link">
+    <i class="fas fa-user"></i> Usuarios
+  </a>
+  <a routerLink="/invoice" routerLinkActive="active" class="header-link">
+    <i class="fas fa-file-invoice"></i> Facturas
+  </a>
+  <a routerLink="/Productos" routerLinkActive="active" class="header-link">
+    <i class="fas fa-box"></i> Productos
+  </a>
+  <a routerLink="/logs" routerLinkActive="active" class="header-link">
+    <i class="fas fa-history"></i> Logs
+  </a>
+  <a routerLink="/anuncios" routerLinkActive="active" class="header-link">
+    <i class="fas fa-bullhorn"></i> Anuncios
+</a>
+
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="#" class="breadcrumb-link">Inicio</a>
+      <span class="breadcrumb-separator">/</span>
+    </li>
+    <li class="breadcrumb-item">
+      <span class="breadcrumb-current">Jefe / Productos</span>
+    </li>
+  </ol>
+</nav>
+<button class="btn-add btn-padding btn-spacing" (click)="openAddProductModal()">Agregar Producto</button>
+
+
+<div class="search-bar my-4">
+  <input type="text" id="searchInput" (keyup)="filterProducts()" placeholder="Buscar productos..." class="search-input">
+</div>
+
+<table id="productsTable" class="min-w-full divide-y divide-[#3f3f3f]">
+  <thead>
+    <tr>
+      <th class="table-header">ID</th>
+      <th class="table-header">Nombre</th>
+      <th class="table-header">Cantidad</th>
+      <th class="table-header">Precio</th>
+      <th class="table-header">Acciones</th>
+    </tr>
+  </thead>
+  <tbody class="bg-[#ffffff] divide-y divide-[#3f3f3f]">
+    <tr *ngFor="let product of products">
+      <td class="table-cell">{{ product.id }}</td>
+      <td class="table-cell">{{ product.name }}</td>
+      <td class="table-cell">{{ product.quantity }}</td>
+      <td class="table-cell">{{ product.price }}</td>
+      <td class="table-cell">
+        <button (click)="openEditProductPanel(product)" class="btn-edit btn-padding btn-spacing">Editar</button>
+        <button (click)="deleteProduct(product.id!)" class="btn-delete btn-padding btn-spacing">Eliminar</button>
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Panel para editar producto -->
+<div *ngIf="showEditProductPanel && selectedProduct" class="modal-bg">
+  <div class="modal-content">
+    <h3 class="modal-title">Editar Producto</h3>
+    <form (ngSubmit)="updateProduct()">
+      <div class="modal-field">
+        <label>Nombre:</label>
+        <input [(ngModel)]="selectedProduct.name" name="name" required class="modal-input">
+      </div>
+      <div class="modal-field">
+        <label>Cantidad:</label>
+        <input type="number" [(ngModel)]="selectedProduct.quantity" name="quantity" required class="modal-input">
+      </div>
+      <div class="modal-field">
+        <label>Precio:</label>
+        <input type="number" [(ngModel)]="selectedProduct.price" name="price" required class="modal-input">
+      </div>
+      <div class="flex justify-end">
+        <button type="submit" class="btn-save btn-padding btn-spacing">Guardar</button>
+        <button type="button" (click)="closeEditProductPanel()"
+          class="btn-cancel btn-padding btn-spacing">Cancelar</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal para agregar producto -->
+<div *ngIf="showAddProductModal" class="modal-outer">
+  <div class="modal-inner">
+    <div class="modal-bg-layer"></div>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <div class="modal-box">
+      <div class="modal-content">
+        <h3 class="modal-title">Agregar Producto</h3>
+        <div class="mt-2">
+          <form (ngSubmit)="addProduct()">
+            <div class="modal-field">
+              <label>Nombre del Producto:</label>
+              <input [(ngModel)]="newProduct.name" name="name" required class="modal-input">
+            </div>
+            <div class="modal-field">
+              <label>Cantidad:</label>
+              <input type="number" [(ngModel)]="newProduct.quantity" name="quantity" required class="modal-input">
+            </div>
+            <div class="modal-field">
+              <label>Precio:</label>
+              <input type="number" [(ngModel)]="newProduct.price" name="price" required class="modal-input">
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="btn-save btn-padding btn-spacing">Guardar</button>
+              <button type="button" (click)="closeAddProductModal()"
+                class="btn-cancel btn-padding btn-spacing">Cancelar</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

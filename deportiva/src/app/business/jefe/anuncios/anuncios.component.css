@@ -1,0 +1,171 @@
+.anuncios-container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #1f5fa7;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #1f5fa7;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #1f5fa7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #174d82;
+}
+
+h3 {
+  color: #1f5fa7;
+  margin-top: 30px;
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  color: #333;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.anuncio-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.error-message {
+  color: #f44336; /* Color rojo para mensajes de error */
+  font-size: 12px;
+}
+
+h4 {
+  color: #1f5fa7;
+}
+
+p {
+  color: #333;
+}
+
+small {
+  color: #666;
+}
+
+/* Enlaces de encabezado */
+.header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 1rem 0;
+  box-shadow: 0 0.5rem 1rem #1f5fa7;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #1f5fa7;
+  transition: color 0.3s;
+}
+
+.header-link:hover,
+.header-link.routerLinkActive {
+  color: #3f3f3f;
+}
+
+.header-link i {
+  margin-right: 0.5rem;
+}
+
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Espacio debajo de la barra de navegación */
+}
+
+.breadcrumb-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  color: #1f5fa7; /* Color de enlace */
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.breadcrumb-link:hover {
+  opacity: 1;
+}
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: #333333; /* Color del separador */
+}
+
+.breadcrumb-current {
+  color: #1f5fa7;
+  font-weight: bold; /* Texto en negrita para el elemento actual */
+}

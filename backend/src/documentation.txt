@@ -1,0 +1,15 @@
+Iniciar proyecto
+node 1 rojo
+: npm run typescript
+
+node 2 verde
+: npm run dev
+
+node 3 amarillo
+: npm i --save-dev @types/express  //este aun nose que pedo xd
+
+pagina del token
+:https://jwt.io
+
+
+Cosas del registro
