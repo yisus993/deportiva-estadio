@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Proyecto Deportiva Estadio
 
 Este proyecto incluye un frontend desarrollado con Angular y un backend construido con Node.js. La aplicación está diseñada para gestionar información deportiva, como usuarios, productos, ventas y más.
@@ -99,7 +100,8 @@ Contribuciones son bienvenidas. Sigue estos pasos para contribuir al proyecto:
  Bash:
  git commit -m "Descripción de mi cambio"
 4. Envía un pull request al repositorio principal.
+
 =======
 # deportiva-estadio
 Proyecto Angular con backend en Node.js para gestión de ventas ejemplo (DEPORTIVA ESTADIO)
->>>>>>> a36c6c68555a99de8eea4406cac1d2b01a324b9f
+>>>>>>> f49c29c9a957cc7f82995a18f268a063dc5f848e
